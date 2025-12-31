@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@walletconnect/ethereum-provider": "^2.21.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "viem": "^2.43.3"
   },
   "devDependencies": {
     "@types/react": "^19.0.0",
