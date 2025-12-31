@@ -1,0 +1,21 @@
+{
+  "name": "x402-react-paywall",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "files": [
+    "src"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles.css": "./src/paywall.css"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  },
+  "dependencies": {
+    "viem": "^2.43.3",
+    "@walletconnect/ethereum-provider": "^2.21.1"
+  }
+}

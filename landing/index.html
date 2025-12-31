@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>x402 Paywall - Themed React Paywall</title>
+    <link rel="stylesheet" href="./landing.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="nav">
+        <div class="logo">x402 Paywall</div>
+        <nav class="nav__links">
+          <a href="#flow">Mock Flow</a>
+          <a href="#themes">Themes</a>
+          <a href="#usage">Usage</a>
+        </nav>
+        <button class="nav__cta">Get the component</button>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero__copy">
+            <span class="pill">React + Next ready</span>
+            <h1>Ship x402 payments with a paywall that looks premium.</h1>
+            <p>
+              A generic, brandable paywall component that handles the full x402 flow: 402 response, wallet
+              connect, EIP-3009 signing, and instant access. Drop it into React or Next.js and customize
+              the UI with simple theme tokens.
+            </p>
+            <div class="hero__actions">
+              <button class="button button--primary">View mock flow</button>
+              <button class="button button--ghost">See theme gallery</button>
+            </div>
+            <div class="hero__meta">
+              <div>
+                <strong>Client-only</strong>
+                <span>Works with any x402 backend</span>
+              </div>
+              <div>
+                <strong>Theme tokens</strong>
+                <span>Per-brand colors + radius</span>
+              </div>
+              <div>
+                <strong>Redirect support</strong>
+                <span>Auto or manual success routing</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero__preview">
+            <div class="preview-card">
+              <div class="preview-card__header">
+                <span>Payment Required</span>
+                <span class="preview-card__badge">Base</span>
+              </div>
+              <div class="preview-card__amount">0.0025 USDC</div>
+              <div class="preview-card__line">
+                Wallet connected • Ready to sign
+              </div>
+              <button id="hero-pay-cta" class="button button--primary">Pay 0.0025 USDC</button>
+              <div class="preview-card__foot">x402 Protocol</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="flow" class="flow">
+          <div class="section-title">
+            <h2>Mock flow: 402 to access in under 60 seconds</h2>
+            <p>Use the controls to preview each state of the paywall experience.</p>
+          </div>
+          <div class="flow__grid">
+            <div class="flow__steps">
+              <div class="step">
+                <span class="step__num">01</span>
+                <div>
+                  <h3>Resource request</h3>
+                  <p>Client requests the protected resource as usual.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step__num">02</span>
+                <div>
+                  <h3>402 response</h3>
+                  <p>Backend responds with a payment-required payload and headers.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step__num">03</span>
+                <div>
+                  <h3>Sign &amp; submit</h3>
+                  <p>User connects a wallet and signs the EIP-3009 authorization.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step__num">04</span>
+                <div>
+                  <h3>Instant access</h3>
+                  <p>The server verifies the payment and returns the resource.</p>
+                </div>
+              </div>
+            </div>
+            <div class="mock">
+              <div class="mock__note">
+                <strong>Interactive demo:</strong> Click <em>Connect Wallet</em>, then
+                <em>Sign demo payment</em> on Base Sepolia. No funds are transferred.
+              </div>
+              <div class="mock__wc">
+                <label for="demo-wc-project">WalletConnect Project ID</label>
+                <input
+                  id="demo-wc-project"
+                  type="text"
+                  placeholder="Paste your WalletConnect Project ID"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="mock__card" data-state="connect">
+                <div class="mock__brand">
+                  <div class="mock__logo">P</div>
+                  <div>
+                    <strong>Paywall Demo</strong>
+                    <span>Secure x402 checkout</span>
+                  </div>
+                </div>
+                <div class="mock__amount">
+                  <span>0.0025</span>
+                  <small>USDC</small>
+                </div>
+                <div class="mock__meta">Base Sepolia · Demo payment</div>
+                <div class="mock__state mock__state--connect">
+                  <button id="demo-connect" class="button button--primary">Connect Wallet</button>
+                  <button id="demo-walletconnect" class="button button--ghost">WalletConnect</button>
+                </div>
+                <div class="mock__state mock__state--connected">
+                  <div class="mock__connected">
+                    Connected: <span id="demo-address">0x…</span>
+                  </div>
+                  <button id="demo-pay" class="button button--primary">Sign demo payment</button>
+                  <button id="demo-disconnect" class="button button--ghost">Disconnect</button>
+                </div>
+                <div class="mock__state mock__state--processing">
+                  <div class="spinner"></div>
+                  <p id="demo-processing-text">Waiting for wallet signature...</p>
+                </div>
+                <div class="mock__state mock__state--success">
+                  <div class="success-icon">✓</div>
+                  <p>Signature captured. Demo payment complete.</p>
+                  <code id="demo-signature" class="mock__signature"></code>
+                  <button id="demo-reset" class="button button--ghost">Reset demo</button>
+                </div>
+                <div class="mock__state mock__state--error">
+                  <div id="demo-error" class="error-banner">
+                    Signature rejected. Please try again.
+                  </div>
+                  <button id="demo-retry" class="button button--ghost">Retry</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="themes" class="themes">
+          <div class="section-title">
+            <h2>Theme it for every product surface</h2>
+            <p>Swap the theme tokens to match your brand without rewriting UI markup.</p>
+          </div>
+          <div class="theme-grid">
+            <article class="theme-card theme-card--mint">
+              <header>
+                <h3>Mint Studio</h3>
+                <p>Default palette tuned for enterprise dashboards.</p>
+              </header>
+              <div class="theme-preview">
+                <div class="theme-preview__top">
+                  <span>Payment Required</span>
+                  <span class="chip">Base Sepolia</span>
+                </div>
+                <div class="theme-preview__amount">0.0025 USDC</div>
+                <button class="button button--primary">Pay now</button>
+              </div>
+            </article>
+
+            <article class="theme-card theme-card--solar">
+              <header>
+                <h3>Solar Relay</h3>
+                <p>Warm, high-contrast theme for consumer products.</p>
+              </header>
+              <div class="theme-preview">
+                <div class="theme-preview__top">
+                  <span>Payment Required</span>
+                  <span class="chip">Base</span>
+                </div>
+                <div class="theme-preview__amount">1.25 USDC</div>
+                <button class="button button--primary">Pay now</button>
+              </div>
+            </article>
+
+            <article class="theme-card theme-card--graphite">
+              <header>
+                <h3>Graphite Cloud</h3>
+                <p>Muted, technical look for infra dashboards.</p>
+              </header>
+              <div class="theme-preview">
+                <div class="theme-preview__top">
+                  <span>Payment Required</span>
+                  <span class="chip">Base</span>
+                </div>
+                <div class="theme-preview__amount">0.80 USDC</div>
+                <button class="button button--primary">Pay now</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="usage" class="usage">
+          <div class="section-title">
+            <h2>Simple integration</h2>
+            <p>Pass the payment-required payload and the resource URL. The component handles the rest.</p>
+          </div>
+          <div class="usage__grid">
+            <div class="usage__code">
+              <pre><code>import { X402Paywall } from 'x402-react-paywall';
+
+&lt;X402Paywall
+  paymentRequired={paymentRequired}
+  currentUrl="/api/x402/report"
+  resourceDescription="Pay to view the protected resource"
+  successRedirectUrl="/report"
+  theme={{
+    background: '#0f172a',
+    card: '#111827',
+    foreground: '#f8fafc',
+    muted: '#94a3b8',
+    brandPrimary: '#38bdf8',
+    brandPrimaryHover: '#0ea5e9',
+    destructive: '#f87171',
+    border: 'rgba(148,163,184,0.2)',
+    borderRadius: '18px',
+  }}
+/&gt;</code></pre>
+            </div>
+            <div class="usage__callout">
+              <h3>Hooks for product teams</h3>
+              <ul>
+                <li>Override theme tokens per product or per resource.</li>
+                <li>Listen to `onSuccess` and pipe analytics events.</li>
+                <li>Enable WalletConnect with a project ID.</li>
+                <li>Use `requestInit` for POST or custom headers.</li>
+              </ul>
+              <button class="button button--primary">Read the README</button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div>
+          <strong>x402 React Paywall</strong>
+          <span>Drop-in component for stablecoin access control.</span>
+        </div>
+        <span>Powered by x402 protocol</span>
+      </footer>
+    </div>
+
+    <script type="module" src="./landing.js"></script>
+  </body>
+</html>
