@@ -1,6 +1,6 @@
 # x402 React Paywall
 
-A generic, client-side paywall component for x402 payments that drops into React or Next.js apps. It reproduces the EIP-3009 signing flow from the reference HTML paywall, but wraps it in a composable React component.
+A generic, client-side paywall component for x402 payments that drops into React or Next.js apps.
 
 ## What it does
 
