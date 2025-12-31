@@ -1,5 +1,5 @@
 {
-  "installCommand": "bun install && bun --cwd example install",
-  "buildCommand": "bun --cwd example run build",
+  "installCommand": "bun install && (cd example && bun install)",
+  "buildCommand": "cd example && bun run build",
   "outputDirectory": "example/dist"
 }
