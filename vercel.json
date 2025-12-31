@@ -1,11 +1,5 @@
 {
-  "builds": [
-    {
-      "src": "example/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ]
+  "installCommand": "bun install && bun --cwd example install",
+  "buildCommand": "bun --cwd example run build",
+  "outputDirectory": "example/dist"
 }

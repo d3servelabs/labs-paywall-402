@@ -17,5 +17,9 @@
   "dependencies": {
     "viem": "^2.43.3",
     "@walletconnect/ethereum-provider": "^2.21.1"
+  },
+  "devDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }
