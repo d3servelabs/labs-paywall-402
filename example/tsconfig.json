@@ -1,23 +1,47 @@
 {
   "compilerOptions": {
+    "target": "ES2020",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2020"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@x402/paywall": ["../src/index.ts"]
+      "x402-react-paywall": [
+        "../src/index.ts"
+      ],
+      "x402-react-paywall/styles.css": [
+        "../src/paywall.css"
+      ]
     },
-    "target": "ES2020",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["src"]
+  "include": [
+    "app",
+    "components",
+    "lib",
+    "next-env.d.ts",
+    "pages",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

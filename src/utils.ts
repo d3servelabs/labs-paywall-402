@@ -14,10 +14,6 @@ export function parseNetworkChainId(network?: string): number | null {
   return Number(match[1]);
 }
 
-export function toChainIdHex(chainId: number): string {
-  return `0x${chainId.toString(16)}`;
-}
-
 export function decodeBase64Json<T>(value?: string | null): T | null {
   if (!value) return null;
   try {
@@ -40,16 +36,4 @@ export function encodeBase64Json(value: unknown): string {
 export function shortenAddress(address: string): string {
   if (!address) return '';
   return `${address.slice(0, 6)}...${address.slice(-4)}`;
-}
-
-export function isMobileUserAgent(): boolean {
-  if (typeof navigator === 'undefined') return false;
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent,
-  );
-}
-
-export function hasInjectedWallet(): boolean {
-  if (typeof window === 'undefined') return false;
-  return typeof (window as typeof window & { ethereum?: unknown }).ethereum !== 'undefined';
 }

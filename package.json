@@ -11,15 +11,16 @@
     "./styles.css": "./src/paywall.css"
   },
   "peerDependencies": {
+    "wagmi": "^3.0.0",
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19"
   },
   "dependencies": {
-    "viem": "^2.43.3",
-    "@walletconnect/ethereum-provider": "^2.21.1"
+    "viem": "^2.43.3"
   },
   "devDependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "wagmi": "^3.0.0"
   }
 }

@@ -1,4 +1,4 @@
-import type { BrandingConfig, ChainConfig, ThemeConfig } from './types';
+import type { ChainConfig, ThemeConfig } from './types';
 
 export const DEFAULT_THEME: ThemeConfig = {
   background: '#f5f6fb',
@@ -10,16 +10,9 @@ export const DEFAULT_THEME: ThemeConfig = {
   destructive: '#e5484d',
   border: 'rgba(15, 23, 42, 0.12)',
   borderRadius: '20px',
-};
-
-export const DEFAULT_BRANDING: BrandingConfig = {
   appName: 'x402 Paywall',
   appLogo: '',
 };
-
-export const DEFAULT_REDIRECT_DELAY = 3;
-export const DEFAULT_REDIRECT_LABEL = 'Continue';
-export const DEFAULT_AUTO_REDIRECT = true;
 
 export const X402_PROTOCOL_URL = 'https://x402.org';
 

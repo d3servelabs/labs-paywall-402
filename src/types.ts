@@ -8,9 +8,6 @@ export interface ThemeConfig {
   destructive: string;
   border: string;
   borderRadius?: string;
-}
-
-export interface BrandingConfig {
   appName?: string;
   appLogo?: string;
 }
@@ -23,54 +20,24 @@ export interface ChainConfig {
   blockExplorer: string;
 }
 
-export interface PaymentRequirement {
+export interface X402PaymentRequirement {
   scheme: string;
   network: string;
-  amount?: string | number;
-  maxAmountRequired?: string | number;
-  price?: string | number;
-  payTo?: string;
-  maxTimeoutSeconds?: number;
-  asset?: string;
-  extra?: {
-    name?: string;
-    version?: string;
-  };
-}
-
-export interface PaymentRequiredResponse {
-  x402Version?: number;
-  resource?: {
-    url?: string;
-    description?: string;
-    mimeType?: string;
-  };
-  accepts?: PaymentRequirement[];
-  extensions?: unknown;
-  [key: string]: unknown;
-}
-
-export interface RedirectOptions {
-  successRedirectUrl?: string;
-  successRedirectDelaySeconds?: number;
-  autoSuccessRedirect?: boolean;
-  successRedirectBtnLabel?: string;
-}
-
-export interface WalletConnectMetadata {
-  name: string;
+  maxAmountRequired: string;
+  resource: string;
   description?: string;
-  url: string;
-  icons?: string[];
+  payTo: string;
+  maxTimeoutSeconds: number;
+  asset: string;
+  mimeType?: string;
+  outputSchema?: object | null;
+  extra?: Record<string, unknown>;
 }
 
-export interface WalletConnectOptions {
-  projectId: string;
-  chains?: number[];
-  optionalChains?: number[];
-  showQrModal?: boolean;
-  rpcMap?: Record<number, string>;
-  metadata?: WalletConnectMetadata;
+export interface X402PaymentRequired {
+  x402Version: number;
+  error?: string;
+  accepts: X402PaymentRequirement[];
 }
 
 export interface BalanceInfo {
@@ -80,18 +47,15 @@ export interface BalanceInfo {
   error?: string | null;
 }
 
-export interface X402PaywallProps extends RedirectOptions {
-  paymentRequired: PaymentRequiredResponse;
+export interface X402PaywallProps {
+  paymentRequired: X402PaymentRequired;
   currentUrl: string;
   chainConfig?: ChainConfig;
   chainConfigs?: Record<string, ChainConfig>;
   acceptIndex?: number;
   resourceDescription?: string;
   testnet?: boolean;
-  walletConnectProjectId?: string;
-  walletConnect?: WalletConnectOptions;
   theme?: ThemeConfig;
-  branding?: BrandingConfig;
   showBalances?: boolean;
   requestInit?: RequestInit;
   onSuccess?: (
@@ -99,16 +63,8 @@ export interface X402PaywallProps extends RedirectOptions {
     context: {
       response: Response;
       paymentHeader: string;
-      redirectOptions?: RedirectOptions;
     },
   ) => void;
   onError?: (error: Error) => void;
   className?: string;
 }
-
-export type EIP1193Provider = {
-  request: (args: { method: string; params?: unknown[] | object }) => Promise<unknown>;
-  on?: (event: any, listener: (...args: any[]) => void) => any;
-  removeListener?: (event: any, listener: (...args: any[]) => void) => any;
-  disconnect?: () => Promise<void> | void;
-};

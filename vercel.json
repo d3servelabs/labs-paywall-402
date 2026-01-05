@@ -1,5 +1,6 @@
 {
   "installCommand": "bun install && (cd example && bun install)",
-  "buildCommand": "cd example && bun run build",
-  "outputDirectory": "example/dist"
+  "builds": [
+    { "src": "example/next.config.mjs", "use": "@vercel/next" }
+  ]
 }

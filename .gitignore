@@ -8,6 +8,7 @@ node_modules/
 /dist/
 /build/
 /.vite/
+example/dist/
 
 # logs
 npm-debug.log*
