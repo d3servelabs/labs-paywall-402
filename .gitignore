@@ -24,3 +24,4 @@ bun-debug.log*
 # misc
 *.local
 .vercel/
+.next/
