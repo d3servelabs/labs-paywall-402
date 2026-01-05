@@ -14,7 +14,7 @@ Then open http://localhost:3000.
 
 ## How it works
 
-- `pages/api/x402/demo.ts` serves a mock 402 endpoint at `/api/x402/demo`.
+- `app/api/x402/demo/route.ts` serves a mock 402 endpoint at `/api/x402/demo`.
 - The app fetches `/api/x402/demo`. When it receives 402, it reads the `PAYMENT` header.
 - The `X402Paywall` component connects a wallet, signs, and replays the request with `PAYMENT-SIGNATURE` headers.
 - The API route validates the signature header and returns a JSON payload.
