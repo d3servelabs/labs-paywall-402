@@ -73,13 +73,6 @@ export interface WalletConnectOptions {
   metadata?: WalletConnectMetadata;
 }
 
-export type PaywallState =
-  | 'connect'
-  | 'connected'
-  | 'processing'
-  | 'success'
-  | 'error';
-
 export interface BalanceInfo {
   network: string;
   chainName: string;

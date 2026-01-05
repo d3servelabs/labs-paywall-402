@@ -183,18 +183,6 @@
   line-height: 1.2;
 }
 
-.x402-paywall__chain-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--x402-primary);
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--x402-primary) 14%, transparent);
-}
-
-.x402-paywall__chain-dot.is-testnet {
-  background: #f59e0b;
-  box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.2);
-}
 
 .x402-paywall__section {
   display: flex;
@@ -264,12 +252,6 @@
   color: var(--x402-text);
 }
 
-.x402-paywall__button--inline {
-  background: none;
-  color: var(--x402-primary);
-  font-size: 0.75rem;
-  padding: 0;
-}
 
 .x402-paywall__connected {
   display: flex;

@@ -44,7 +44,6 @@ import {
 } from './utils';
 
 const USDC_ABI = parseAbi([
-  'function transfer(address recipient, uint256 amount) external returns (bool)',
   'function balanceOf(address account) external view returns (uint256)',
   'function decimals() external view returns (uint8)',
 ]);
