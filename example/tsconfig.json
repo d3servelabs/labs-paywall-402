@@ -20,6 +20,18 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
+      "wagmi": [
+        "./node_modules/wagmi"
+      ],
+      "wagmi/*": [
+        "./node_modules/wagmi/*"
+      ],
+      "viem": [
+        "./node_modules/viem"
+      ],
+      "viem/*": [
+        "./node_modules/viem/*"
+      ],
       "x402-react-paywall": [
         "../src/index.ts"
       ],
